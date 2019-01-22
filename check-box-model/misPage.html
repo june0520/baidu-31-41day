@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MIS系统数据展示</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <style>
+        table {
+            margin-top: 0px;
+        }
+     
+        td {
+            width: 100px;
+            height: 50px;
+            background-color: #ccc;
+            position: relative;
+        }
+        td:hover .bianji {
+            display: block;
+        }
+     
+        th {
+            width: 100px;
+            height: 40px;
+            background-color: #551100;
+            color: #fff
+        }
+
+        .barLine {
+            display:flex;
+        }
+        .barLine canvas {
+            flex: 1;
+        }
+        .barLine svg {
+            flex: 1;
+        }
+        .bianji {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            color: #f00;
+            display: none;
+            font-size: 14px;
+        }
+        button {
+            width: 46px;
+            height: 18px;
+            font-size: 8px;
+        }
+        #table-wrapper input {
+            text-indent: 20px;
+            width: 70px;
+            height: 20px;
+        }
+
+
+    
+    </style>
+
+</head>
+<body>
+        <div id="region-radio-wrapper" >
+            <input type="checkbox" value="华东" class="single">华东
+            <input type="checkbox" value="华南" class="single">华南
+            <input type="checkbox" value="华北" class="single">华北
+            <input type="checkbox" value="全选" id="all">全选
+
+        </div>
+        <div id="product-radio-wrapper">
+            <input type="checkbox" value="手机" class="single">手机
+            <input type="checkbox" value="笔记本" class="single">笔记本
+            <input type="checkbox" value="智能音箱"class="single">智能音箱
+            <input type="checkbox" value="全选" id="all">全选
+        </div>
+        <div class="barLine">
+            <canvas id="mycanvas"></canvas>
+            <svg></svg>
+        </div>
+
+
+    
+    <div id="table-wrapper"></div>
+
+<script src = "js/ife31data.js"></script>  
+<script src = "js/checkbox.js"></script> 
+<script src = "js/getData.js"></script> 
+<script src = "js/table.js"></script> 
+<script src = "js/app.js"></script>    
+<script src = "js/bar.js"></script>
+<script src = "js/line.js"></script>   
+<script src = "js/line2.js"></script> 
+<script src = "js/state.js"></script>    
+
+    
+</body>
+</html>

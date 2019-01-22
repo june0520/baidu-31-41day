@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hash测试</title>
+</head>
+<body>
+    
+<div id="left">
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+</div>
+ <div id="right">
+    <button id="d">D</button>
+    <button id="e">E</button>
+    <button id="f">F</button>
+</div>
+
+    
+    <div id="contABC"></div>
+    <div id="contDEF"></div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var btnL = document.querySelector('#left').querySelectorAll('button')
+        var btnR = document.querySelector('#right').querySelectorAll('button')
+
+        var contABC = document.querySelector('#contABC')
+        var contDEF = document.querySelector('#contDEF')
+
+        for (let btn of btnL){
+            btn.onclick = function(){
+                var text = btn.id
+                var name = {"l&r":text}
+                window.history.pushState(name,null,location.href.split('#')[0]+'#'+text)
+            }
+        }
+        for (let btn of btnR){
+            btn.onclick = function(){
+                var h = location.hash
+                if(h.length===2){
+                    var name = {"l&r":h+this.id}
+                    window.history.pushState(name,null,location.href.split('#')[0]+h+this.id)
+                } else{
+                    var newH = h.slice(0,2)+btn.id
+                    var name = {"l&r":newH}
+
+                    window.history.pushState(name,null,location.href.split('#')[0]+'#'+newH)
+
+                }
+            }
+        }
+        function getHash(){
+            return window.location.hash
+        }
+        function fn(event){
+            var currentState = history.state;
+            var l = currentState['l&r'][1]
+            var r = currentState['l&r'][2]
+
+            contABC.innerHTML = l
+
+            contDEF.innerHTML = r || "占位符"
+        }
+        window.onpopstate = fn
+
+        fn()
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
